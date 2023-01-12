@@ -1,4 +1,4 @@
-package com.recommendservice;
+package com.recommend.service;
 
 import com.recommend.bean.Role;
 import com.recommend.bean.User;
@@ -67,5 +67,13 @@ public class UserService {
         }
 
         return false;
+    }
+
+    public User getUser(String userName) {
+
+        if (userName == null) {
+            return null;
+        }
+        return userRepository.getUser(userName);
     }
 }

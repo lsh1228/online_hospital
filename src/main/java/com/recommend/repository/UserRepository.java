@@ -1,5 +1,6 @@
 package com.recommend.repository;
 
+import com.recommend.bean.Role;
 import com.recommend.bean.User;
 import com.recommend.util.DatabaseUtil;
 import org.springframework.stereotype.Repository;
@@ -62,5 +63,37 @@ public class UserRepository {
         }
 
         return false;
+    }
+
+    public User getUser(String userName) {
+        if (userName == null) {
+            return null;
+        }
+
+        User user = null;
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = DatabaseUtil.connect();
+            stmt = conn.createStatement();
+            String sql = "select * from user where name=\"" + userName + "\"";
+            rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setAge(rs.getInt("age"));
+                user.setSex(rs.getInt("sex"));
+                user.setRole(Role.valueOf(rs.getString("role")));
+                user.setName(rs.getString("name"));
+                user.setPassword(rs.getString("password"));
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        } finally{
+            DatabaseUtil.close(rs, stmt, conn);
+        }
+        return user;
     }
 }
