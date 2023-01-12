@@ -15,6 +15,7 @@ create table tag_recommend (
 create table hospital_user (
     id bigint not null auto_increment,
     name varchar(50),
+    email varchar(50),
     password varchar(64),
     sex int(5),
     age int(10),
