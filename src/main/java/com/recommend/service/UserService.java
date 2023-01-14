@@ -76,4 +76,13 @@ public class UserService {
         }
         return userRepository.getUser(userName);
     }
+
+    public boolean delUser(String userName) {
+
+        if (userName == null) {
+            return false;
+        }
+
+        return userRepository.delete(userName);
+    }
 }
