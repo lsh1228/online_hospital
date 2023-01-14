@@ -40,4 +40,14 @@ public class UserTest {
         assert(ok);
     }
 
+    public void testLogin() {
+
+        User user = new User();
+        user.setName("aa");
+        user.setPassword("123");
+        boolean ok = userService.login(user);
+        assert(ok);
+    }
+
+
 }
