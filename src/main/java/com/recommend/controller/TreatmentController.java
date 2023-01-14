@@ -76,7 +76,6 @@ public class TreatmentController {
             if (treatment.getPublish_time() != null && !treatment.getPublish_time().equals("")) {
                 publish_time = treatment.getPublish_time();
             }
-            System.out.println(treatment.toString());
             treatmentRepository.save(new Treatment(treatment.getTitle(), treatment.getContent(), author,
                     publish_time, treatment.getIllState(), treatment.getMedicineCnt(),
                     treatment.getIllType()));
@@ -101,7 +100,6 @@ public class TreatmentController {
             treatment.setIllState(treatment2.getIllState());
             treatment.setIllType(treatment2.getIllType());
             treatment.setMedicineCnt(treatment2.getMedicineCnt());
-
 
             Treatment insertedArticle = treatmentRepository.save(treatment);
             if (insertedArticle.getId() == id) {

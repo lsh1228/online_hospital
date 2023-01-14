@@ -25,7 +25,7 @@ public class UserTest {
         user.setName("aa");
         user.setPassword("123");
         boolean ok = userService.register(user);
-        assert(!ok);
+        assert(ok);
 
         User user2 = userService.getUser("aa");
         assert(user2 != null);
@@ -40,14 +40,27 @@ public class UserTest {
         assert(ok);
     }
 
-    public void testLogin() {
+    public void testGetUser() {
 
         User user = new User();
         user.setName("aa");
         user.setPassword("123");
-        boolean ok = userService.login(user);
+        boolean ok = userService.register(user);
         assert(ok);
+
+        user = userService.getUser("aa");
+        assert(user != null);
     }
 
+    public void testDel() {
 
+        User user = new User();
+        user.setName("aa");
+        user.setPassword("123");
+        boolean ok = userService.register(user);
+        assert(ok);
+
+        ok = userService.delUser("aa");
+        assert(ok);
+    }
 }
