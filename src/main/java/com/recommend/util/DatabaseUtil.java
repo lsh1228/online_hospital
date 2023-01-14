@@ -16,7 +16,7 @@ public class DatabaseUtil {
                 + "?useUnicode=true&characterEncoding=utf-8"
                 + "&useSSL=false&serverTimezone=Asia/Shanghai";
         dbUser = "root";
-        dbPass = "root";
+        dbPass = "123456";
     }
 
     public static void main(String[] args) throws Exception{

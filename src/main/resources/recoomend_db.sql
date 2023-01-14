@@ -26,13 +26,13 @@ create table hospital_user (
 
 
 create table treatment (
-    id bigint not null auto_increment,
-    user_name varchar(50),
-    start_date varchar(50),
-    end_date varchar(50),
-    symptom varchar(500),
-    have_medicine varchar(50),
-    other_disease varchar(50),
-    result varchar(50),
-    primary key(Id)
+   id bigint not null auto_increment,
+   title varchar(50),
+   author varchar(50),
+   publish_time varchar(50),
+   content varchar(2000),
+   ill_type varchar(50),
+   ill_state varchar(50),
+   medicine_cnt  int,
+   primary key(Id)
 ) engine=InnoDB default charset=utf8;
